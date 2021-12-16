@@ -107,9 +107,9 @@ jobs:
         path: /opt/images
         
     - name: Upload images to Releases
-        if: ${{ github.event_name == 'release' && success() }}
-        uses: svenstaro/upload-release-action@2.2.0
-        with:
+         uses: svenstaro/upload-release-action@2.2.0
+         if: ${{ github.event_name == 'release' && success() }}
+         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ${{ env.images_dir }}/*.trx
           tag: ${{ github.ref }}
